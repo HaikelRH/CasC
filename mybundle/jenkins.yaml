@@ -38,6 +38,22 @@ jenkins:
   - all:
       name: "all"
   viewsTabBar: "standard"
+advisor:
+  acceptToS: true
+  email: "c_hmejri@cloudbees.com"
+  excludedComponents:
+  - "AgentsSystemConfiguration"
+  - "AgentsJVMProcessSystemMetricsContents"
+  - "GCLogs"
+  - "AgentsConfigFile"
+  - "ConfigFileComponent"
+  - "RootCAs"
+  - "SlaveLogs"
+  - "OtherConfigFilesComponent"
+  - "HeapUsageHistogram"
+  - "OtherLogs"
+  - "SlaveLaunchLogs"
+  nagDisabled: false
 beekeeper:
   enabled: true
   securityWarnings:
@@ -49,7 +65,7 @@ beekeeper:
 license:
   certificate: |
     -----BEGIN CERTIFICATE-----
-    MIIRODCCECCgAwIBAgIGAYebf90kMA0GCSqGSIb3DQEBBQUAMIICcDERMA8GCisG
+    MIIRODCCECCgAwIBAgIGAYedr6EZMA0GCSqGSIb3DQEBBQUAMIICcDERMA8GCisG
     AQQBgql/AQETATMxMDAuBgorBgEEAYKpfwECEyBiYTY0MTc4N2Q1OTg0MjA0ZDk4
     YmE4NDg4MmRlNWMyODEVMBMGCysGAQQBgql/AQsOEwR0cnVlMRUwEwYLKwYBBAGC
     qX8BCw0TBHRydWUxFTATBgsrBgEEAYKpfwELEBMEdHJ1ZTEVMBMGCysGAQQBgql/
@@ -63,7 +79,7 @@ license:
     CysGAQQBgql/AQsVEwR0cnVlMRMwEQYKKwYBBAGCqX8BAxMDMTAwMRUwEwYKKwYB
     BAGCqX8BDhMFMTAwMDAxFTATBgorBgEEAYKpfwEJEwVmYWxzZTEOMAwGA1UEAxMF
     SGVsbG8xCTAHBgNVBAsTADEWMBQGCysGAQQBgql/AQsYEwVmYWxzZTAeFw0yMzA0
-    MTkyMDUxMDBaFw0yMzA0MjIyMjUxMDBaMIIClTEOMAwGA1UEAwwFSGVsbG8xDjAM
+    MjAwNzAyMjVaFw0yMzA0MjMwOTAyMjVaMIIClTEOMAwGA1UEAwwFSGVsbG8xDjAM
     BgNVBAsMBUhlbGxvMREwDwYKKwYBBAGCqX8BAQwBMzEwMC4GCisGAQQBgql/AQIM
     IDU3ODBiZGE2MGZlMzYzYWExZGI3YWJmMjYwOTE0ZjViMTQwMgYKKwYBBAGCqX8B
     BgwkYjJiNDRkNjctNGEwOC00YzgwLWFhOTYtOTFmNmE5NjgwMjEzMRUwEwYKKwYB
@@ -135,12 +151,12 @@ license:
     QzdNODFDb0dveVdMbUtWazFaRU9ZNHhWMHMKWUlwUm5TbGRuMTNvTUJHU0pCVGRF
     SkxCYzNWbTlTV2EwYXQvenZEN0FpSTB2VUhiTEk3d042RXMyUEs5NU9GNwpVczU1
     UG1NTW0yM0x5VnBGTUNoMm5Id2xEWlowbnlJeAotLS0tLUVORCBDRVJUSUZJQ0FU
-    RS0tLS0tCgowDQYJKoZIhvcNAQEFBQADggEBAHm+LErFKkr1uGSs7X5HQxeZxfng
-    FyQvl/Ufv/1S1b11Og9aMolEivR8VsYHyOlxA/vPouOGJeozJNJUFMzbpuvQcar4
-    eLygl+36kjq1t/oLtVcdTEFL1QuKbABnbd4jc5nsGehjmkLsXzKDaFuCJ855Th2l
-    TfQ6WXYsesDLayD0ReU7ZL/ufSltbgi9i42JlqEgMlmblG5CJ9nsAWy5/OrOYGmv
-    ljiduU3+baszdURlAca3hcTtpRIgEuJjx0FpMNU0j1bmi0PPBYJ1BWxfeE7jlUAy
-    NGco9IVt3wFOsozD6Z8abVbPVIlGMRdzgiqaUqv3eZ3RgKD/CWhKYCLiaPE=
+    RS0tLS0tCgowDQYJKoZIhvcNAQEFBQADggEBADH4BNak1TMV/N3T4e+w3USxj0lp
+    l0PWtE4yM7pqO/UP0+smiVIGQI8yVdwWlRGaRG+CsGGWKt+QzjsFnULFdp1C5B5q
+    337hUNpMa5QJwaKZS7+w/omDmf5BC4aAW7iihDHZ843roJcS25aFrFm38NVdAPZZ
+    NgVMk33h4+P+E9FZpWqxMno/8yu/Ic0kpe5RQVYeP1yvqPT/BjpybQmhW6uQqvwx
+    4+GO07Ydrvw61pCf9PBPc1UswoqUbPy1dJACxKLKBQUe603TAE9vDJE+FWoJc+Rt
+    wKpU2+Tm1yr5KECKO7Z0JDYW6wWobe9IEKzqSA1dcYbpc+nF1/6NdeLtoBg=
     -----END CERTIFICATE-----
   key: |
     -----BEGIN RSA PRIVATE KEY-----
@@ -256,9 +272,13 @@ unclassified:
       $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
 
       Check console output at $BUILD_URL to view the results.
+    defaultContentType: "text/plain"
+    defaultRecipients: "c_hmejri@cloudbees.com"
     defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
     defaultTriggerIds:
     - "hudson.plugins.emailext.plugins.trigger.FailureTrigger"
+    mailAccount:
+      smtpHost: "smtp.cloudbees.com"
     maxAttachmentSize: -1
     maxAttachmentSizeMb: -1
     precedenceBulk: false
@@ -276,7 +296,7 @@ unclassified:
   gitHubConfiguration:
     apiRateLimitChecker: ThrottleForNormalize
   gitHubPluginConfig:
-    hookUrl: "https://cjoc.apps.ocp4.example.com/controller1/github-webhook/"
+    hookUrl: "https://cjoc.apps.ocp4.example.com/controller2/github-webhook/"
   injectionConfig:
     allowUntrusted: false
     enabled: false
@@ -286,7 +306,7 @@ unclassified:
     storage: "file"
   location:
     adminAddress: "address not configured yet <nobody@nowhere>"
-    url: "https://cjoc.apps.ocp4.example.com/controller1/"
+    url: "https://cjoc.apps.ocp4.example.com/controller2/"
   mailer:
     charset: "UTF-8"
     useSsl: false
