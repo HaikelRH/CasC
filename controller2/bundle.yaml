@@ -1,7 +1,7 @@
 apiVersion: "1"
-id: "controller1"
+id: "controller"
 description: "This is the controller 2 bundle"
-version: "1"
+version: "2"
 jcasc:
   - "jenkins.yaml"
 plugins:
